@@ -42,6 +42,12 @@ async function run() {
       const result = await serviceCollection.deleteOne(query);
       res.send(result);
     });
+    // post
+    app.post("/items", async (req, res) => {
+      const newItem = req.body;
+      const result = await serviceCollection.insertOne(newItem);
+      res.send(result);
+    });
   } finally {
   }
 }
